@@ -22,6 +22,8 @@ from tabletopbuddy.server import views
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
+router.register(r"players", views.PlayerViewSet)
+router.register(r"game_sessions", views.GameSessionViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
