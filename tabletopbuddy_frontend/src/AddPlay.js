@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 class AddPlay extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class AddPlay extends React.Component {
 
   addPlayToDatabase = (event) => {
     event.preventDefault();
+    axios.post("http://192.168.1.165:8000/game_sessions/", { game_name: "lol" });
     console.log(this.state);
     console.log("add to database");
   };
