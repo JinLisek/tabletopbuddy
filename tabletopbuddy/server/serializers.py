@@ -22,6 +22,8 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class GameSessionSerializer(serializers.HyperlinkedModelSerializer):
+    players = PlayerSerializer(read_only=True, many=True)
+
     class Meta:
         model = GameSession
         fields = ["game_name", "players"]
