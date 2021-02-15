@@ -7,4 +7,4 @@ class Player(models.Model):
 
 class GameSession(models.Model):
     game_name = models.CharField(max_length=30)
-    players = models.ManyToManyField(Player)
+    players = models.ManyToManyField(Player, related_name="game_sessions")
