@@ -30,7 +30,6 @@ class AddPlay extends React.Component {
         game_name: this.state.gameName,
         players: this.state.players,
       };
-      console.log("req: " + req.game_name + " " + req.players[0].name);
       axios.post("http://192.168.1.165:8000/game_sessions/", req).then((resp) => {
         console.log(resp);
       });
@@ -44,25 +43,22 @@ class AddPlay extends React.Component {
   };
 
   handleAddPlayer = (event) => {
-    console.log(this.playerToBeAddedName.current.value);
-
     this.setState((state, _) => {
-      const newPlayers = [...state.players, { name: this.playerToBeAddedName.current.value }];
+      const newPlayers = [...state.players, this.playerToBeAddedName.current.value];
       this.playerToBeAddedName.current.value = "";
       return { players: newPlayers };
     });
   };
 
   render = () => {
-    console.log(this.state);
     return (
       <Form onSubmit={this.addPlayToDatabase}>
         <Form.Group controlId="formGameName">
           <Form.Label>Game name</Form.Label>
           <Form.Control type="text" onChange={this.handleChangeGameName} placeholder="Enter game name" />
         </Form.Group>
-        {this.state.players.map((player, index) => {
-          return <AddedPlayer playerName={player.name} key={index} />;
+        {this.state.players.map((playerName, index) => {
+          return <AddedPlayer playerName={playerName} key={index} />;
         })}
         <Form.Group controlId="formAddPlayer">
           <Form.Label>Player name</Form.Label>
