@@ -1,10 +1,9 @@
 import React from "react";
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
-import Home from "./components/Home";
-import AddGameSession from "./components/AddGameSession";
+import Home from "./Home";
+import AddGameSession from "./AddGameSession";
 
 const App = () => {
   return (
