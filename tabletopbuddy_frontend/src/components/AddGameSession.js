@@ -12,7 +12,7 @@ const AddedPlayer = (props) => {
   );
 };
 
-class AddPlay extends React.Component {
+class AddGameSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = { gameName: null, players: [] };
@@ -75,4 +75,4 @@ class AddPlay extends React.Component {
   };
 }
 
-export default AddPlay;
+export default AddGameSession;
