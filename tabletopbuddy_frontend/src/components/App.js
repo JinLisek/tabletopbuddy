@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
 import Home from "./Home";
-import AddGameSession from "./AddGameSession";
+import NewGameSession from "./add-game-session-form/NewGameSession";
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
       </Navbar>
       <Switch>
         <Route exact path="/" component={Home}></Route>
-        <Route exact path="/add_game_session" component={AddGameSession}></Route>
+        <Route exact path="/add_game_session" component={NewGameSession}></Route>
       </Switch>
     </div>
   );

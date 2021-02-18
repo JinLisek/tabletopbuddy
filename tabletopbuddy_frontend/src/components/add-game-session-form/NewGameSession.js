@@ -2,17 +2,9 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-const AddedPlayer = (props) => {
-  return (
-    <Form.Group controlId="formAddedPlayer">
-      <Form.Label>Player name</Form.Label>
-      <Form.Control type="text" placeholder={props.playerName} readOnly />
-      <Button variant="primary">Remove</Button>
-    </Form.Group>
-  );
-};
+import GameSessionPlayer from "./GameSessionPlayer";
 
-class AddGameSession extends React.Component {
+class NewGameSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = { gameName: null, players: [] };
@@ -58,7 +50,7 @@ class AddGameSession extends React.Component {
           <Form.Control type="text" onChange={this.handleChangeGameName} placeholder="Enter game name" />
         </Form.Group>
         {this.state.players.map((playerName, index) => {
-          return <AddedPlayer playerName={playerName} key={index} />;
+          return <GameSessionPlayer playerName={playerName} key={index} />;
         })}
         <Form.Group controlId="formAddPlayer">
           <Form.Label>Player name</Form.Label>
@@ -75,4 +67,4 @@ class AddGameSession extends React.Component {
   };
 }
 
-export default AddGameSession;
+export default NewGameSession;
