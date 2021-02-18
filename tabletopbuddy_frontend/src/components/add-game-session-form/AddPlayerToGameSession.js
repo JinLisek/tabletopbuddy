@@ -9,6 +9,7 @@ class AddPlayerToGameSession extends React.Component {
 
   handleClickAddPlayer = () => {
     if (this.nameOfAddedPlayer.current.value === "") return;
+
     this.props.addPlayerCallback(this.nameOfAddedPlayer.current.value);
     this.nameOfAddedPlayer.current.value = "";
   };

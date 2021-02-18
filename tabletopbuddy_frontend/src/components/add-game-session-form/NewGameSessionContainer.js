@@ -1,10 +1,7 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-import GameNameFormGroup from "./GameNameFormGroup";
-import AddPlayerToGameSession from "./AddPlayerToGameSession";
-import GameSessionPlayers from "./GameSessionPlayers";
+import NewGameSessionForm from "./NewGameSessionForm";
 
 class NewGameSessionContainer extends React.Component {
   constructor(props) {
@@ -36,10 +33,6 @@ class NewGameSessionContainer extends React.Component {
     this.setState({ gameName: event.target.value });
   };
 
-  handleChangePlayerName = (event) => {
-    this.playerToBeAddedName = event.target.value;
-  };
-
   handleAddPlayer = (playerName) => {
     this.setState((state, _) => {
       const newPlayers = [...state.players, playerName];
@@ -49,14 +42,12 @@ class NewGameSessionContainer extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.addPlayToDatabase}>
-        <GameNameFormGroup nameChangeCallback={this.handleChangeGameName} />
-        <GameSessionPlayers players={this.state.players} />
-        <AddPlayerToGameSession addPlayerCallback={this.handleAddPlayer} />
-        <Button variant="primary" type="submit">
-          Add game session
-        </Button>
-      </Form>
+      <NewGameSessionForm
+        submitCallback={this.addPlayToDatabase}
+        gameNameChangeCallback={this.handleChangeGameName}
+        addPlayerCallback={this.handleAddPlayer}
+        players={this.state.players}
+      />
     );
   }
 }
