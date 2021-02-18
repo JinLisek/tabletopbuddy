@@ -2,11 +2,9 @@ import React from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import AddPlay from "./AddPlay";
 
-const Home = () => {
-  return <h1>HOME</h1>;
-};
+import Home from "./components/Home";
+import AddPlay from "./components/AddPlay";
 
 const App = () => {
   return (
