@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["192.168.1.165"]
 
+AUTH_USER_MODEL = "server.User"
+
 
 # Application definition
 

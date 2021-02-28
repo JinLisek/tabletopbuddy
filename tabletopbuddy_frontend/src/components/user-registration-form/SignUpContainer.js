@@ -19,9 +19,10 @@ class SignUpContainer extends React.Component {
     event.preventDefault();
     if (this.validate()) {
       const req = {
-        name: this.state.username,
+        username: this.state.username,
+        email: "blax@gmail.com",
       };
-      axios.post("http://192.168.1.165:8000/players/", req).then((resp) => {
+      axios.post("http://192.168.1.165:8000/sign_up/", req).then((resp) => {
         console.log(resp);
       });
     } else {

@@ -1,10 +1,11 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class Player(models.Model):
-    name = models.CharField(max_length=30)
+class User(AbstractUser):
+    email = models.EmailField(unique=True)
 
 
 class GameSession(models.Model):
     game_name = models.CharField(max_length=30)
-    players = models.ManyToManyField(Player, related_name="game_sessions")
+    players = models.ManyToManyField(User, related_name="game_sessions")
