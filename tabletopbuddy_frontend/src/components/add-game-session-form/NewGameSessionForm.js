@@ -1,13 +1,13 @@
 import { Form, Button } from "react-bootstrap";
 
-import GameNameFormGroup from "./GameNameFormGroup";
+import NamedText from "../forms/NamedText";
 import AddPlayerToGameSession from "./AddPlayerToGameSession";
 import GameSessionPlayers from "./GameSessionPlayers";
 
 const NewGameSessionForm = (props) => {
   return (
     <Form onSubmit={props.submitCallback}>
-      <GameNameFormGroup gameNameChangeCallback={props.gameNameChangeCallback} />
+      <NamedText name="Game name" textChangeCallback={props.gameNameChangeCallback} />
       <GameSessionPlayers players={props.players} />
       <AddPlayerToGameSession addPlayerCallback={props.addPlayerCallback} />
       <Button variant="primary" type="submit">
