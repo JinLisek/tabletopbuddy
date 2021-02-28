@@ -15,6 +15,7 @@ class EmailContainer extends React.Component {
     if (isEmail(event.target.value)) {
       this.setState({ email: event.target.value });
     }
+    this.props.emailChangeCallback(event);
   };
 
   onRepeatedEmailChange = (event) => {

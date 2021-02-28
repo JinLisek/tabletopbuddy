@@ -9,7 +9,7 @@ const SignUpForm = (props) => {
   return (
     <Form onSubmit={props.submitCallback}>
       <NamedText name="Username" textChangeCallback={props.usernameChangeCallback} />
-      <EmailContainer />
+      <EmailContainer emailChangeCallback={props.emailChangeCallback} />
       <NamedText name="Password" textChangeCallback={props.passwordChangeCallback} type="password" />
       <NamedText name="Repeat password" textChangeCallback={props.repeatedPasswordChangeCallback} type="password" />
       <SubmitButton name="Sign up" />
