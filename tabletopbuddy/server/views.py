@@ -10,6 +10,8 @@ from tabletopbuddy.server.models import User, GameSession
 
 
 class SignUpView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+
     def post(self, request, format="json"):
         print(request.data)
         serializer = UserSerializer(data=request.data)
