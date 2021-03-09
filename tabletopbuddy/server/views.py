@@ -19,7 +19,10 @@ class SignUpView(views.APIView):
             user = serializer.save()
             if user:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-        print(serializer.errors)
+        return Response(
+            data=serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST,
+        )
 
 
 class UserViewSet(viewsets.ModelViewSet):
