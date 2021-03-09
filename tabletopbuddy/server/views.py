@@ -20,7 +20,7 @@ class SignUpView(views.APIView):
             if user:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(
-            data=serializer.errors,
+            data={"errors": serializer.errors},
             status=status.HTTP_400_BAD_REQUEST,
         )
 
