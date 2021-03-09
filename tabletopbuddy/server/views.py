@@ -1,5 +1,7 @@
 from rest_framework import viewsets, permissions, views, status
 from rest_framework.response import Response
+from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
+
 from tabletopbuddy.server.serializers import (
     UserSerializer,
     GameSessionSerializer,
@@ -21,7 +23,7 @@ class SignUpView(views.APIView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by("-date_joined")
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
 
 
 class GameSessionViewSet(viewsets.ModelViewSet):

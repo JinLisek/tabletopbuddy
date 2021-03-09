@@ -15,6 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path, include
+from django.contrib import admin
 from rest_framework import routers
 from tabletopbuddy.server import views
 
@@ -25,6 +26,8 @@ router.register(r"game_sessions", views.GameSessionViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("admin/", admin.site.urls),
     path("sign_up/", views.SignUpView.as_view()),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
