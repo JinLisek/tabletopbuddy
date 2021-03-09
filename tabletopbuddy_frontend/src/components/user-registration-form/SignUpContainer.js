@@ -7,7 +7,7 @@ import SignUpForm from "./SignUpForm";
 class SignUpContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", email: "" };
+    this.state = { username: "", email: "", password: "" };
   }
 
   validate = () => {
@@ -21,6 +21,7 @@ class SignUpContainer extends React.Component {
       const req = {
         username: this.state.username,
         email: this.state.email,
+        password: this.state.password,
       };
       axios.post("http://192.168.1.165:8000/sign_up/", req).then((resp) => {
         console.log(resp);
@@ -42,12 +43,7 @@ class SignUpContainer extends React.Component {
 
   onPasswordChange = (event) => {
     console.log("password: " + event.target.value);
-    console.log("isEmail: " + isEmail(event.target.value));
-  };
-
-  onRepeatedPasswordChange = (event) => {
-    console.log("repeated password: " + event.target.value);
-    console.log("isEmail: " + isEmail(event.target.value));
+    this.setState({ password: event.target.value });
   };
 
   render() {
@@ -58,7 +54,6 @@ class SignUpContainer extends React.Component {
         usernameChangeCallback={this.onUsernameChange}
         emailChangeCallback={this.onEmailChange}
         passwordChangeCallback={this.onPasswordChange}
-        repeatedPasswordChangeCallback={this.onRepeatedPasswordChange}
       />
     );
   }
