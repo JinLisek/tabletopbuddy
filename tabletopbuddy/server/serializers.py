@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["username", "email", "game_sessions"]
+        fields = ["username", "email", "password", "game_sessions"]
 
 
 class GameSessionSerializer(serializers.ModelSerializer):
