@@ -41,9 +41,9 @@ class SignUpContainer extends React.Component {
     this.setState({ email: event.target.value });
   };
 
-  onPasswordChange = (event) => {
-    console.log("password: " + event.target.value);
-    this.setState({ password: event.target.value });
+  onPasswordChange = (password) => {
+    console.log("password: " + password);
+    this.setState({ password: password });
   };
 
   render() {
