@@ -8,30 +8,14 @@ class PasswordContainer extends React.Component {
     this.state = { password: "", repeatedPassword: "" };
   }
 
-  validatePassword = () => {
-    return this.state.password.length > 0;
-  };
-
-  updateParentWhenPasswordsMatch = () => {
-    if (!this.validatePassword()) {
-      console.log("PASSWORD MUST HAVE AT LEAST 1 CHARACTER");
-      return;
-    }
-
-    if (this.state.password !== this.state.repeatedPassword) {
-      console.log("PASSWORDS DO NOT MATCH!");
-      return;
-    }
-
-    //DZIALA NIEPOPRAWNIE GDY UDA SIE USTAWIC HASLO W PARENCIE, A POZNIEJ UZYTKOWNIK ZMIENI HASLO NA ZLE/NIE MATCHUJACE SIE - redux?
-    this.props.passwordChangeCallback(this.state.password);
+  updateParentWithPassword = () => {
+    this.props.passwordChangeCallback({ password: this.state.password, repeatedPassword: this.state.repeatedPassword });
   };
 
   onPasswordChange = (stateKey) => (event) => {
-    console.log(stateKey + " " + event.target.value);
     this.setState(() => {
       return { [stateKey]: event.target.value };
-    }, this.updateParentWhenPasswordsMatch);
+    }, this.updateParentWithPassword);
   };
 
   render() {
