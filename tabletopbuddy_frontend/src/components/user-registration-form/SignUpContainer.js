@@ -23,9 +23,20 @@ class SignUpContainer extends React.Component {
         email: this.state.email,
         password: this.state.password,
       };
-      axios.post("http://192.168.1.165:8000/sign_up/", req).then((resp) => {
-        console.log(resp);
-      });
+      axios
+        .post("http://192.168.1.165:8000/sign_up/", req)
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((err) => {
+          if (err.response) {
+            let serverErrors = "SERVER ERRORS:\n";
+            if (err.response.data.errors.username) serverErrors += "\n" + err.response.data.errors.username.join("\n");
+            if (err.response.data.errors.email) serverErrors += "\n" + err.response.data.errors.email.join("\n");
+            if (err.response.data.errors.password) serverErrors += "\n" + err.response.data.errors.password.join("\n");
+            alert(serverErrors);
+          }
+        });
     } else {
       alert("VALIDATION FAILED");
     }
