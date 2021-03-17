@@ -34,7 +34,7 @@ jobs:
         cat coverage_report
     - name: Get coverage percentage
       run: |
-        echo "::set-env name=COVERAGE_PERCENTAGE::$(awk 'NF>1{print $NF}' coverage_report | tail -1)"
+        echo "::set-output name=COVERAGE_PERCENTAGE::$(awk 'NF>1{print $NF}' coverage_report | tail -1)"
     - name: Create coverage badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
@@ -42,6 +42,6 @@ jobs:
         gistID: 552ce237f255723acc32075d96d8d709
         filename: coverage-badge.json
         label: Python Coverage
-        message: ${{ env.COVERAGE_PERCENTAGE }}
+        message: ${{ COVERAGE_PERCENTAGE }}
         color: orange
     
