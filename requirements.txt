@@ -27,6 +27,7 @@ py==1.10.0
 pylint==2.6.0
 pyparsing==2.4.7
 pytest==6.2.2
+pytest-django==4.1.0
 pytz==2020.5
 regex==2020.11.13
 requests==2.25.1
