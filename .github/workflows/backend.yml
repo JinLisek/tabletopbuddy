@@ -1,6 +1,8 @@
 name: Tabletop Buddy CI - backend
 
 on:
+  paths-ignore:
+  - 'frontend/**'
   push:
     branches: [ main ]
   pull_request:
