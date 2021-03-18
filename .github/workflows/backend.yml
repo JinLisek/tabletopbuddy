@@ -1,4 +1,4 @@
-name: Tabletop Buddy backend CI
+name: Tabletop Buddy CI - backend
 
 on:
   push:
