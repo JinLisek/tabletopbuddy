@@ -43,5 +43,5 @@ jobs:
         filename: python-coverage-badge.json
         label: Python coverage
         message: ${{ env.COVERAGE_PERCENTAGE }}
-        color: blue
+        labelColor: blue
     

@@ -42,4 +42,4 @@ jobs:
         filename: javascript-coverage-badge.json
         label: Javascript line coverage
         message: ${{ env.COVERAGE_PERCENTAGE }}
-        color: green
+        labelColor: green
