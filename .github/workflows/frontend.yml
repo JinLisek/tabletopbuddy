@@ -9,6 +9,12 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    shell: bash
+    working-directory: tabletopbuddy_frontend
+
+
 jobs:
   build:
 
@@ -24,7 +30,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-      working-dir: tabletopbuddy_frontend
+        node-version: ${{ matrix.node-version }} 
     - run: npm ci
     - run: npm run coverage
