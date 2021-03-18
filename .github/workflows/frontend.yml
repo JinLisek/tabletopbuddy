@@ -12,7 +12,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: tabletopbuddy_frontend
+    working-directory: frontend
 
 
 jobs:
