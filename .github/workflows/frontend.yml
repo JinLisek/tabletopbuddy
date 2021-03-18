@@ -39,7 +39,7 @@ jobs:
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: 552ce237f255723acc32075d96d8d709
-        filename: coverage-badge.json
+        filename: javascript-coverage-badge.json
         label: Javascript line coverage
         message: ${{ env.COVERAGE_PERCENTAGE }}
         color: green
