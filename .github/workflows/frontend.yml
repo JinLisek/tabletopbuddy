@@ -38,11 +38,11 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     - name: Coverage
-      run: npm run coverage
-    - name: Get coverage percentage
       run: |
-        npm run coverage -- --coverageReporters='text-summary' > javascript_coverage_report
-        echo "COVERAGE_PERCENTAGE=$(awk '{print $3}' javascript_coverage_report | tail -2)" >> $GITHUB_ENV
+        npm run coverage > javascript_coverage_report
+        cat javascript_coverage_report
+    - name: Get coverage percentage
+      run: echo "COVERAGE_PERCENTAGE=$(head -8 javascript_coverage_report | tail -1 | awk '{print $10}')" >> $GITHUB_ENV
     - name: Create javascript coverage badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
