@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Figure } from "react-bootstrap";
 
 import Home from "./Home";
 import NewGameSessionContainer from "./add-game-session-form/NewGameSessionContainer";
@@ -11,7 +11,9 @@ const App = () => {
     <div className="App">
       <Navbar bg="light" expand="lg">
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/">
+            <Figure.Image src="/tabletop-logo.png" width={100} height={100} />
+          </Nav.Link>
           <Nav.Link href="/add_game_session">Add Game Session</Nav.Link>
           <Nav.Link href="/sign_up">Sign up</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
