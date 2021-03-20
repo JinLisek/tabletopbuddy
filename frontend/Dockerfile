@@ -1,11 +1,11 @@
 FROM node:15.12-alpine
 
-USER node:node
+USER node
 RUN mkdir /home/node/dependencies
 RUN mkdir /home/node/dependencies/app
 
 WORKDIR /home/node/dependencies
-COPY --chown=node:node ["package.json", "./"]
+COPY --chown=node ["package.json", "./"]
 
 RUN npm install
 # ENV NODE_PATH /home/node/dependencies/node_modules:$NODE_PATH
