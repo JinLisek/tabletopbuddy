@@ -31,8 +31,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: DOCKER COMPOSE
-      run: docker-compose run frontend npm test
+    - name: Build frontend image
+      run: docker-compose build frontend
+    - name: Coverage docker
+      run: docker-compose run frontend npm run coverage > javascript_coverage_report && cat javascript_coverage_report
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
