@@ -13,15 +13,16 @@ on:
     paths-ignore:
     - 'backend/**'
 
-defaults:
-  run:
-    shell: bash
-    working-directory: frontend
+# defaults:
+#   run:
+#     shell: bash
+#     working-directory: frontend
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    working-directory: frontend
     steps:
       -
         name: Checkout
