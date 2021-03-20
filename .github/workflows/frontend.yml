@@ -38,8 +38,9 @@ jobs:
     - name: Run coverage
       run: docker-compose run frontend npm run coverage-ci
     - name: Generate coverage badge
-      run: docker-compose run frontend npm run coverage-summary > cov_report
-      run: echo "COV_PERCENTAGE=$(cat cov_report | tail -7 | head -1 | awk '{print $3}')" >> $GITHUB_ENV
+      run: |
+        docker-compose run frontend npm run coverage-summary > cov_report
+        echo "COV_PERCENTAGE=$(cat cov_report | tail -7 | head -1 | awk '{print $3}')" >> $GITHUB_ENV
     - name: Create javascript coverage badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
