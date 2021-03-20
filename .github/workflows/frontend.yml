@@ -49,18 +49,17 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     needs: build
+    container: jinlisek/tabletopbuddy:latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build frontend image
-      run: docker-compose build frontend
     - name: Run tests
-      run: docker-compose run frontend npm run test
+      run: npm run test
     - name: Run coverage
-      run: docker-compose run frontend npm run coverage-ci
+      run: npm run coverage-ci
     - name: Generate coverage badge
       run: |
-        docker-compose run frontend npm run coverage-summary > cov_report
+        npm run coverage-summary > cov_report
         echo "COV_PERCENTAGE=$(cat cov_report | tail -7 | head -1 | awk '{print $3}')" >> $GITHUB_ENV
     - name: Create javascript coverage badge
       uses: schneegans/dynamic-badges-action@v1.0.0
