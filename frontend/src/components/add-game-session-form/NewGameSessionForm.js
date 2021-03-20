@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 import NamedText from "../forms/NamedText";
 import SubmitButton from "../forms/SubmitButton";

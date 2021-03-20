@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import isEmail from "validator/lib/isEmail";
 
 import SignUpForm from "./SignUpForm";
 
