@@ -13,10 +13,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_WORKSPACE: /home/node/app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        path: frontend
+        with:
+          path: frontend
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
