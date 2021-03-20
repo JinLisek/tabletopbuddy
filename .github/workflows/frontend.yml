@@ -14,7 +14,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GITHUB_WORKSPACE: /home/node/app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -35,6 +34,7 @@ jobs:
           file: ./frontend/Dockerfile.ci
           push: true
           tags: jinlisek/tabletopbuddy:latest
+          build-args: APP_PATH=${{ env.GITHUB_WORKSPACE }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
