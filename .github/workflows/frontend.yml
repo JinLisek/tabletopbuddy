@@ -39,8 +39,6 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: jinlisek/tabletopbuddy:latest
-          cache-from: type=registry, ref=jinlisek/tabletopbuddy:latest
-          cache-to: type=inline
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
