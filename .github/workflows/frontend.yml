@@ -22,7 +22,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    working-directory: frontend
+    env:
+      working-directory: ./frontend
     steps:
       -
         name: Checkout
