@@ -6,3 +6,4 @@ services:
       - "3000:3000"
     volumes:
       - .:/home/node/app
+      - /home/node/app/frontend/node_modules
