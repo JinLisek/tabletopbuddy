@@ -10,6 +10,9 @@ on:
     paths-ignore:
     - 'backend/**'
 
+defaults:
+  env:
+    working-directory: ./frontend
 
 jobs:
   build:
