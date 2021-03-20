@@ -47,8 +47,8 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   tests:
-
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
     - uses: actions/checkout@v2
