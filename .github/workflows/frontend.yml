@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./frontend
-          file: ./frontend/Dockerfile
+          file: ./frontend/Dockerfile.ci
           push: true
           tags: jinlisek/tabletopbuddy:latest
       - name: Image digest
