@@ -13,17 +13,10 @@ on:
     paths-ignore:
     - 'backend/**'
 
-# defaults:
-#   run:
-#     shell: bash
-#     working-directory: frontend
-
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./frontend
     steps:
       -
         name: Checkout
@@ -46,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./frontend/Dockerfile
           push: true
           tags: jinlisek/tabletopbuddy:latest
       -
