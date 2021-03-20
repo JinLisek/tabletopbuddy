@@ -1,9 +1,12 @@
 FROM node:14.16.0-buster-slim
 
+ARG APP_PATH=/home/node/app
+
+WORKDIR $APP_PATH
 COPY ["package.json", "./"]
 
 RUN npm install
-ENV PATH $GITHUB_WORKSPACE/node_modules/.bin:$PATH
+ENV PATH $APP_PATH/node_modules/.bin:$PATH
 
 EXPOSE 3000
 
