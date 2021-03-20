@@ -5,5 +5,4 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/home/node/app
-      - /home/node/app/node_modules
+      - .:/home/node/app

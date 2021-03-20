@@ -1,17 +1,19 @@
 FROM node:14.16.0-buster-slim
 
-USER node
-RUN mkdir /home/node/app
-# RUN mkdir /home/node/dependencies/app
+RUN apt-get update && apt-get install sudo git -y
+RUN usermod -aG sudo node
 
-WORKDIR /home/node/app
+USER node
+
+ENV FRONTEND_PATH=/home/node/app/frontend
+
+RUN mkdir -p $FRONTEND_PATH
+WORKDIR $FRONTEND_PATH
+
 COPY --chown=node ["package.json", "./"]
 
 RUN npm install
-# ENV NODE_PATH /home/node/dependencies/node_modules:$NODE_PATH
-ENV PATH /home/node/app/node_modules/.bin:$PATH
-
-WORKDIR /home/node/app
+ENV PATH $FRONTEND_PATH/node_modules/.bin:$PATH
 
 EXPOSE 3000
 

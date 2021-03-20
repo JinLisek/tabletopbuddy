@@ -4,7 +4,7 @@
 		"../docker-compose.yml"
 	],
 	"service": "tabletop-buddy-frontend",
-	"workspaceFolder": "/home/node/app",
+	"workspaceFolder": "/home/node/app/frontend",
 	"settings": {
 		"terminal.integrated.shell.linux": null
 	},
