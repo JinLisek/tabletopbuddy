@@ -3,7 +3,7 @@
 	"dockerComposeFile": [
 		"../docker-compose.yml"
 	],
-	"service": "tabletop-buddy-frontend",
+	"service": "frontend",
 	"workspaceFolder": "/home/node/app/frontend",
 	"settings": {
 		"terminal.integrated.shell.linux": null
