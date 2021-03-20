@@ -1,0 +1,12 @@
+{
+	"name": "Tabletop-buddy frontend for vscode",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "tabletop-buddy-frontend",
+	"workspaceFolder": "/home/node/app",
+	"settings": {
+		"terminal.integrated.shell.linux": null
+	},
+	"extensions": ["dbaeumer.vscode-eslint"]
+}
