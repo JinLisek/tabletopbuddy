@@ -32,6 +32,7 @@ jobs:
           echo "github.workspace = ${{ github.workspace }}"
           echo "github.ref = ${{ github.ref }}"
           echo "GITHUB_CONTEXT = $GITHUB_CONTEXT"
+          echo "APP_PATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -40,7 +41,7 @@ jobs:
           file: ./frontend/Dockerfile.ci
           push: true
           tags: jinlisek/tabletopbuddy:latest
-          build-args: APP_PATH=${{$GITHUB_WORKSPACE}}
+          build-args: APP_PATH=${{ env.APP_PATH }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
