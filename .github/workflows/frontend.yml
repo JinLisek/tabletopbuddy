@@ -26,11 +26,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Print github workspace
-          run: |
-            echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-            echo "github.workspace = ${{ github.workspace }}"
-            echo "github.ref = ${{ github.ref }}"
-            echo "GITHUB_CONTEXT = $GITHUB_CONTEXT"
+        run: |
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          echo "github.workspace = ${{ github.workspace }}"
+          echo "github.ref = ${{ github.ref }}"
+          echo "GITHUB_CONTEXT = $GITHUB_CONTEXT"
         - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
