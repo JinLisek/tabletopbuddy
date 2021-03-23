@@ -50,6 +50,12 @@ jobs:
       image: jinlisek/tabletopbuddy:latest
 
     steps:
+    - name: Print github workspace
+      run: |
+        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+        echo "github.workspace = ${{ github.workspace }}"
+        echo "github.ref = ${{ github.ref }}"
+        echo "GITHUB_CONTEXT = $GITHUB_CONTEXT"
     - name: Run tests
       run: npm run test
     - name: Run coverage
