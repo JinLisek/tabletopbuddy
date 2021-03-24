@@ -41,7 +41,6 @@ jobs:
     needs: build
     container:
       image: jinlisek/tabletopbuddy:latest
-      entrypoint: frontend/entrypoint.sh
 
     steps:
     - name: Print github workspace
