@@ -11,3 +11,5 @@ ENV PATH ${APP_PATH}/node_modules/.bin:$PATH
 EXPOSE 3000
 
 COPY . ./
+
+ENTRYPOINT [ "${APP_PATH}/entrypoint.sh" ]

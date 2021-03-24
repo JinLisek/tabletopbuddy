@@ -11,19 +11,8 @@ on:
     - 'backend/**'
 
 jobs:
-  blax:
-    runs:
-      using: 'docker'
-      image: 'frontend/Dockerfile.ci'
-      entrypoint: frontend/entrypoint.sh
-    steps:
-      - name: echo whatever
-        run: echo "whatever"
-
   build:
     runs-on: ubuntu-latest
-    container: docker:dind
-    needs: blax
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,13 +25,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-      - name: Print github workspace
-        run: |
-          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-          echo "github.workspace = ${{ github.workspace }}"
-          echo "github.ref = ${{ github.ref }}"
-          echo "GITHUB_CONTEXT = $GITHUB_CONTEXT"
-          echo "APP_PATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
