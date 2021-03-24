@@ -33,7 +33,6 @@ jobs:
           file: ./frontend/Dockerfile.ci
           push: true
           tags: jinlisek/tabletopbuddy:latest
-          build-args: APP_PATH=${{ env.APP_PATH }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
