@@ -11,9 +11,19 @@ on:
     - 'backend/**'
 
 jobs:
+  blax:
+    runs:
+      using: 'docker'
+      image: 'frontend/Dockerfile.ci'
+      entrypoint: frontend/entrypoint.sh
+    steps:
+      - name: echo whatever
+        run: echo "whatever"
+
   build:
     runs-on: ubuntu-latest
     container: docker:dind
+    needs: blax
     steps:
       - name: Checkout
         uses: actions/checkout@v2
