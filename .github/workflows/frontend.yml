@@ -29,7 +29,7 @@ jobs:
       - name: Generate coverage badge
         run: |
           npm run coverage-summary > cov_report
-          echo "COV_PERCENTAGE=$(cat cov_report | tail -2 | head -1 | awk '{print $3}')" >> $GITHUB_ENV
+          echo "COVERAGE_PERCENTAGE=$(cat cov_report | tail -2 | head -1 | awk '{print $3}')" >> $GITHUB_ENV
       - name: Create javascript coverage badge
         uses: schneegans/dynamic-badges-action@v1.0.0
         with:
