@@ -1,0 +1,12 @@
+{
+	"name": "Tabletop-buddy backend for vscode",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "backend",
+	"workspaceFolder": "/home/worker/app/backend",
+	"settings": {
+		"terminal.integrated.shell.linux": null
+	},
+	"extensions": ["ms-python.vscode-pylance", "ms-python.python"]
+}
