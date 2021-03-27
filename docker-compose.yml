@@ -7,3 +7,9 @@ services:
     volumes:
       - .:/home/node/app
       - /home/node/app/frontend/node_modules
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/home/worker/app

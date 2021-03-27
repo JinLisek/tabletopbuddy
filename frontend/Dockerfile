@@ -17,6 +17,6 @@ ENV PATH $FRONTEND_PATH/node_modules/.bin:$PATH
 
 EXPOSE 3000
 
-COPY . ./
+COPY --chown=node . ./
 
 CMD ["npm", "start"]
