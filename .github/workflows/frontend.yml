@@ -26,6 +26,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
+      - name: Run coverage
+        run: npm run coverage-text
       - name: Generate coverage badge
         run: |
           npm run coverage-summary > cov_report
