@@ -1,11 +1,11 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const NamedText = (props) => {
+const NamedText = ({ type, name, textChangeCallback }) => {
   return (
-    <Form.Group controlId={"form" + props.name}>
-      <Form.Label>{props.name}</Form.Label>
-      <Form.Control type={props.type} onChange={props.textChangeCallback} />
+    <Form.Group controlId={"form" + name}>
+      <Form.Label>{name}</Form.Label>
+      <Form.Control type={type} onChange={textChangeCallback} />
     </Form.Group>
   );
 };
