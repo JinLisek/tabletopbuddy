@@ -10,7 +10,7 @@ ENV FRONTEND_PATH=/home/node/app/frontend
 RUN mkdir -p $FRONTEND_PATH
 WORKDIR $FRONTEND_PATH
 
-COPY --chown=node ["package.json", "./"]
+COPY --chown=node ["package.json", "package-lock.json", "./"]
 
 RUN npm install
 ENV PATH $FRONTEND_PATH/node_modules/.bin:$PATH
