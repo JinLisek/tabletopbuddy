@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from rest_framework import viewsets, permissions, views, status
 from rest_framework.response import Response
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
@@ -16,6 +17,8 @@ class SignUpView(views.APIView):
         print(request.data)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
+            password = serializer.validated_data.get("password")
+            serializer.validated_data["password"] = make_password(password)
             user = serializer.save()
             if user:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
