@@ -8,5 +8,5 @@
 	"settings": {
 		"terminal.integrated.shell.linux": null
 	},
-	"extensions": ["ms-python.vscode-pylance", "ms-python.python"]
+	"extensions": ["ms-python.vscode-pylance", "ms-python.python", "rangav.vscode-thunder-client"]
 }
